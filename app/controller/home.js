@@ -5,7 +5,13 @@ const Controller = require('egg').Controller;
 class HomeController extends Controller {
   async index() {
     const { ctx } = this;
-    ctx.body = 'hello word';
+    const user = await ctx.service.home.index();
+	console.log(user);
+    ctx.body = user;
+  }
+  async list() {
+    const { ctx } = this;
+    ctx.body = 'list';
   }
 }
 
